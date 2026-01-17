@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased min-h-screen text-white font-montserrat`}>
+      <body className={`${roboto.variable} antialiased min-h-screen text-white font-mono`}>
         <div className="content min-h-screen bg-black/70">
 
           <div className="grid grid-cols-5 gap-4">
