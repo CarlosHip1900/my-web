@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import NavBar from "./components/navbar";
+import Sidebar from "./components/sidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,10 +20,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="b-black">
-          { NavBar() }
-          {children}
+      <body className={`${roboto.variable} antialiased min-h-screen text-white font-montserrat`}>
+        <div className="content min-h-screen bg-black/70">
+
+          <div className="grid grid-cols-5 gap-4">
+            <div className="col-span-4">
+              {NavBar()}
+            </div>
+            <div>
+              {Sidebar()}
+            </div>
+
+          </div>
         </div>
       </body>
     </html>
