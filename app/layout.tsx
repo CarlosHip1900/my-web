@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Noto_Sans} from "next/font/google";
 import "./globals.css";
 
 import NavBar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 
-const roboto = Roboto({
+const noto = Noto_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-noto-sans",
 });
 
 
@@ -19,8 +19,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en">
-      <body className={`${roboto.variable} antialiased min-h-screen text-white font-mono`}>
+    <html lang="en" className={noto.className}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/dheereshag/coloured-icons@1.9.6/app/ci.min.css"
+        />
+      </head>
+
+      <body className="antialiased min-h-screen text-white">
         <div className="content min-h-screen bg-black/70">
 
           <div className="grid grid-cols-5 gap-4">
