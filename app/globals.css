@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
-body {
-  background-image: url("images/backgrond-image.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+:root {
+  --web-yellow-color: #fedb57;
+  --web-black-color: #212121;
+  --web-gray-color: #d9d9d9; 
+}
+
+.web-navbar {
+  background: var(--web-black-color);
 }

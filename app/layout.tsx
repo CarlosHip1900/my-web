@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Sans} from "next/font/google";
+import { Inter} from "next/font/google";
 import "./globals.css";
 
-import NavBar from "./components/navbar";
-import Sidebar from "./components/sidebar";
+import { NavBar, HeaderInformation } from "./components/header";
 
-const noto = Noto_Sans({
+const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-noto-sans",
+  variable: "--font-inter",
 });
 
 
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" className={noto.className}>
+    <html lang="en" className={inter.className}>
       <head>
         <link
           rel="stylesheet"
@@ -28,17 +27,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       </head>
 
       <body className="antialiased min-h-screen text-white">
-        <div className="content min-h-screen bg-black/70">
-
-          <div className="grid grid-cols-5 gap-4">
-            <div className="col-span-4">
-              {NavBar()}
-            </div>
-            <div>
-              {Sidebar()}
-            </div>
-
-          </div>
+        <div className="content min-h-screen p-3">
+          { NavBar() },
+          { HeaderInformation() }
         </div>
       </body>
     </html>
