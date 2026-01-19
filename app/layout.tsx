@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter} from "next/font/google";
+import { Aleo } from "next/font/google";
 import "./globals.css";
 
 import { NavBar, HeaderInformation } from "./components/header";
+import { Footer } from "./components/footer";
 
-const inter = Inter({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+const aleo = Aleo({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-aleo",
 });
 
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={aleo.className}>
       <head>
         <link
           rel="stylesheet"
@@ -29,7 +30,8 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className="antialiased min-h-screen text-white">
         <div className="content min-h-screen p-3">
           { NavBar() },
-          { HeaderInformation() }
+          { HeaderInformation() },
+          { Footer() }
         </div>
       </body>
     </html>

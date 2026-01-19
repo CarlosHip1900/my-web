@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
+  --web-background: #feda5718;
   --web-yellow-color: #fedb57;
   --web-black-color: #212121;
+  --web-black-second-color: #333333;
   --web-gray-color: #d9d9d9; 
 }
 
-.web-navbar {
-  background: var(--web-black-color);
+body {
+  background-color: var(--web-background);
 }
+
