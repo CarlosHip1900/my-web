@@ -10,10 +10,9 @@ export function NavBar() {
             </div>
             <div className="col-span-4">
                 <div className="p-2 space-x-4 rounded-xl item-center flex flex-row w-auto items-stretch bg-(--web-black-second-color) content-center">
-                    {NavBarButton("/", "Inicio", true)}
-                    {NavBarButton("/", "Trabalhos", false)}
-                    {NavBarButton("/", "Postagens", false)}
-                    {NavBarButton("/", "Postage", false)}
+                    {NavBarButton("home", "/", "Inicio", true)}
+                    {NavBarButton("briefcase", "/", "Trabalhos", false)}
+                    {NavBarButton("bubble-text", "/", "Postagens", false)}
                 </div>
             </div>
             <div className="col-span-2 content-center">
@@ -58,48 +57,67 @@ export function NavBar() {
 
 export function HeaderInformation() {
     return (
-        <div className="grid grid-row-4 gap-5 px-50 py-25">
-            <div className='grid grid-cols-4 flex content-center items-stretch'>
-                <div className='col-span-2 w-full text-right self-center pr-10'>
-                    <h4 className='text-(--web-black-color) font-bold text-8xl'>Carlos Eduardo</h4>
+        <div className="grid gap-10 px-5 py-12 md:px-12 lg:px-10">
+
+            <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-6">
+
+                <div className="lg:col-span-3 text-center lg:text-right lg:pr-10">
+                    <h4 className="text-(--web-black-color) font-black text-3xl sm:text-5xl md:text-6xl xl:text-8xl">
+                        Carlos Eduardo
+                    </h4>
                 </div>
 
-                <div className='col-span-2 flex w-full text-left'>
-                    {
-                        <Image
-                            className='rounded-full'
-                            src="/profile.png"
-                            width={196}
-                            height={128}
-                            alt=""
-                        />
-                    }
-                    <h4 className='pl-10 text-(--web-black-color) font-bold text-9xl self-center'>-</h4>
-
+                <div className="lg:col-span-2 flex justify-center lg:justify-start items-center gap-6">
+                    <Image
+                        className="rounded-full"
+                        src="/avatar.png"
+                        width={196}
+                        height={196}
+                        alt="Avatar"
+                    />
                 </div>
             </div>
-            <div className='pl-30'>
-                <h4 className='text-stone-500/70 font-medium text-8xl'>Engenherio de Software &</h4>
+
+            <div className="text-center lg:text-left lg:pl-40">
+                <h4 className="text-stone-500/70 font-medium text-3xl sm:text-4xl md:text-5xl xl:text-8xl">
+                    Engenheiro de Software &
+                </h4>
             </div>
-            <div className='text-right'>
-                <h4 className='text-stone-500/70 font-medium text-8xl'>Java | Backend</h4>
+
+            <div className="text-center lg:text-right">
+                <h4 className="text-stone-500/70 font-medium text-3xl sm:text-4xl md:text-5xl xl:text-8xl">
+                    Java | Backend
+                </h4>
             </div>
-            <div className='text-right'>
-                <p className='text-stone-900 font-md text-xl '>Sistemas distribuidos, Multi linguagens & Administrador de Banco de Dados</p>
+
+            <div className="text-center lg:text-right px-4">
+                <p className="text-stone-900 font-md text-base sm:text-lg xl:text-xl">
+                    Sistemas distribuídos, Multi linguagens & Administrador de Banco de Dados
+                </p>
             </div>
         </div>
+
     );
 }
 
-function NavBarButton(ref: string, title: string, selected: boolean): React.JSX.Element {
+function NavBarButton(icon: string, ref: string, title: string, selected: boolean): React.JSX.Element {
 
     var appendClass = selected ? "bg-gray-900/50 text-yellow-200" : "hover:bg-gray-900/30";
 
     return (
         <Link
-            className={`px-5 py-3 rounded-xl font-md text-center text-md ` + appendClass}
+            className={`px-5 py-3 flex rounded-xl font-md text-center text-md ` + appendClass}
             href={ref}
         >
+            {
+                <Image
+                    src={`icons/${icon}.svg`}
+                    className="invert mr-3"
+                    height={24}
+                    width={24}
+                    alt="GitHub icon"
+                />
+            }
             {title}
         </Link>
     );

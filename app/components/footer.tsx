@@ -1,15 +1,60 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
+
+    const ctnVars = "p-3 flex items-center text-stone-300 rounded-xl";
+
     return (
-        <footer className="bg-(--web-black-color) px-20 py-10 rounded-xl content-center">
+        <footer className="bg-(--web-black-color) px-20 py-10 rounded-3xl content-center">
+            <div className="grid grid-cols-5 flex flex-no-wrap rounded-xl p-5 mb-5 bg-(--web-black-second-color)">
+                <div className="col-start-1 col-end-3 w-full">
+                    <h4 className="text-2xl mb-3">Está precisando de um desenvoledor para um</h4>
+                    <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 via-orange-500 to-red-500 text-6xl font-bold">
+                        Projeto ou Ideia
+                    </h4>
+                    <div className="grid grid-cols-2 w-full gap-5">
+                        
+                        <div className={ctnVars}>
+                            <Image
+                                src={"/icons/device-mobile-message.svg"}
+                                className="invert"
+                                alt=""
+                                width={32}
+                                height={32}
+                            />
+                            <p className="pl-2">+55 13 996616841</p>
+                        </div>
+                           <div className={ctnVars}>
+                            <Image
+                                src={"/icons/mail-forward.svg"}
+                                className="invert"
+                                alt=""
+                                width={32}
+                                height={32}
+                            />
+                            <p className="pl-2">carloshipolito.contato@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-start-4 col-end-6 text-left w-full">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi libero quidem aperiam ad nostrum iste, aut neque, aliquam non odit voluptatum, delectus optio sequi tempora omnis ipsa esse id repellendus!</p>
+                </div>
+            </div>
             <div className="grid grid-cols-2 flex flex-no-wrap">
                 <div>
                     <h4>Carlos Eduardo</h4>
                 </div>
-                <div>
-                    {FooterSocialGitHub()}
+                <div className="grid grid-cols-6 justify-items-end">
+                    <div className="col-start-1 col-end-6"></div>
+                    <div className="flex space-x-4">
+                        {FooterSocialGitHub()}
+                        {FooterSocialLinkedin()}
+                    </div>
                 </div>
+            </div>
+            <div className="border-b border-gray-100/40 rounded-md border my-5">
+
             </div>
             <div className="grid grid-cols-6 flex">
                 <div className="col-span-3 w-full text-stone">
@@ -23,13 +68,35 @@ export function Footer() {
 function FooterSocialGitHub() {
     return (
         <Link href={"github"}>
-            <div className="bg-(--web-black-second-color) w-fit rounded-md border border-gray-100/10 p-5">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                </svg>
+            <div className="bg-(--web-black-second-color) w-fit rounded-md border border-gray-100/10 p-3">
+                {
+                    <Image
+                        src={"/icons/brand-github.svg"}
+                        className="invert"
+                        height={32}
+                        width={32}
+                        alt="GitHub icon"
+                    />
+                }
             </div>
+        </Link>
+    );
+}
 
+function FooterSocialLinkedin() {
+    return (
+        <Link href={"linkedin"}>
+            <div className="bg-(--web-black-second-color) w-fit rounded-md border border-gray-100/10 p-3">
+                {
+                    <Image
+                        src={"/icons/brand-linkedin.svg"}
+                        className="invert"
+                        height={32}
+                        width={32}
+                        alt="Linkedin icon"
+                    />
+                }
+            </div>
         </Link>
     );
 }

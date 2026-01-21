@@ -28,7 +28,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       </head>
 
       <body className="antialiased min-h-screen text-white">
-        <div className="content min-h-screen p-3">
+        <div className="min-h-screen py-5 container mx-auto">
           { NavBar() },
           { HeaderInformation() },
           { Footer() }
